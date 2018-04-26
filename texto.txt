@@ -1,0 +1,4 @@
+perro
+gato
+perro gato pajaro
+esto es un archivo de prueba

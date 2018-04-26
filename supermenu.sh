@@ -12,8 +12,8 @@
 #------------------------------------------------------
 # VARIABLES GLOBALES
 #------------------------------------------------------
-proyectoActual="/home/fedeatanasoff/Documentos/tp";
-proyectos="/home/fedeatanasoff/Documentos/tp/repos.txt";
+proyectoActual="/home/fedeatanasoff/Documentos/bash/tp";
+proyectos="/home/fedeatanasoff/Documentos/bash/tp/repos.txt";
 
 #------------------------------------------------------
 # DISPLAY MENU
@@ -30,6 +30,9 @@ imprimir_menu () {
     echo -e "\t\t\t a.  Ver estado del proyecto";
     echo -e "\t\t\t b.  Guardar cambios";
     echo -e "\t\t\t c.  Actualizar repositorio";    
+    echo -e "\t\t\t d.  Buscar programa ";
+    echo -e "\t\t\t e.  Buscar archivos";
+    echo -e "\t\t\t f.  Buscar string en un archivo";    
     echo -e "\t\t\t q.  Salir";
     echo "";
     
@@ -125,12 +128,47 @@ done
 }
 
 c_funcion () {
-      	imprimir_encabezado "\tOpción c.  Actualizar repo";
-	echo -e "Ingrese la nueva ruta";
-	read rut
-	echo $rut>> $proyectos;
+      	imprimir_encabezado "\tOpción c.  Actualizar repositorio";
+	
 	echo -e "Actualizar repositorio";
       	decidir "cd $proyectoActual; git pull";
+}
+
+d_funcion () {
+           imprimir_encabezado "\tOpción d. Buscar si un programa esta instalado";
+            read paquete
+            if dpkg -l | grep -w $paquete; then
+                echo "el programa $paquete se encuenta instalado"
+            else
+                echo "el programa $paquete no se encuentra instalado"
+            fi
+}
+
+e_funcion () {
+          imprimir_encabezado "\tOpción e. Buscar archivos por nombre y extension en un directorio especifico";
+            echo "ingrese path"
+            read path
+            echo "ingresar extencion"
+            read extencion 
+            echo "ingrese nombre"
+            read nombre
+
+            if  find $path -name "*.$extencion" | grep -i $nombre > archivos.txt; then
+                cat -b archivos.txt
+            else
+                echo "no se encontro el archivo con la busqueda deseada"
+            fi    
+}
+
+f_funcion () {
+    imprimir_encabezado "\tOpción d. Buscar string en un archivo";
+        echo "ingrese el path del archivo"
+        read path
+        echo "ingresar string"
+        read palabra 
+        cat $path | grep -n $palabra >> salida.out 
+        echo "-------" >> salida.out
+        cat salida.out
 }
 
 #------------------------------------------------------
@@ -149,6 +187,7 @@ do
         c|C) c_funcion;;
         d|D) d_funcion;;
         e|E) e_funcion;;
+        f|F) f_funcion;;
         q|Q) break;;
         *) malaEleccion;;
     esac
