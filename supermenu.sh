@@ -29,7 +29,7 @@ imprimir_menu () {
     echo "";
     echo -e "\t\t\t a.  Ver estado del proyecto";
     echo -e "\t\t\t b.  Guardar cambios";
-    echo -e "\t\t\t c.  Actualizar repo";
+    echo -e "\t\t\t c.  Actualizar repositorio";
     echo -e "\t\t\t d.  Cambiar proyecto";        
     echo -e "\t\t\t e.  Agregar proyecto nuevo";        
     echo -e "\t\t\t q.  Salir";
@@ -96,6 +96,7 @@ decidir () {
     		esac
 	done
 }
+
 
 #------------------------------------------------------
 # FUNCIONES del MENU
@@ -185,6 +186,6 @@ do
         q|Q) break;;
         *) malaEleccion;;
     esac
-    esperar;
+    esperar
 done
  
