@@ -95,8 +95,8 @@ decidir () {
 
 agregarMensajeCommit () {
 echo -e "\t Agregue descripcion/mensaje que llevara el commit";
-read respuesta;
-decidir "cd $proyectoActual; git commit -m $respuesta" ;
+read -e;
+decidir "cd $proyectoActual; git commit -m $REPLY" ;
 }
 
 #------------------------------------------------------
