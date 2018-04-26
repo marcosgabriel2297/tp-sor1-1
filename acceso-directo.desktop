@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=supermenu
+Comment=Ejercicio de acceso directo del tp
+Exec=/home/fedeatanasoff/Documentos/bash/tp/supermenu.sh
+Icon=/home/fedeatanasoff/Documentos/bash/tp/supermenu.png
+Terminal=true
+Type=Application

@@ -33,6 +33,7 @@ imprimir_menu () {
     echo -e "\t\t\t d.  Buscar programa ";
     echo -e "\t\t\t e.  Buscar archivos";
     echo -e "\t\t\t f.  Buscar string en un archivo";    
+    echo -e "\t\t\t g.  Buscar procesos que cambien de estado";    
     echo -e "\t\t\t q.  Salir";
     echo "";
     
@@ -161,7 +162,7 @@ e_funcion () {
 }
 
 f_funcion () {
-    imprimir_encabezado "\tOpción d. Buscar string en un archivo";
+    imprimir_encabezado "\tOpción f. Buscar string en un archivo";
         echo "ingrese el path del archivo"
         read path
         echo "ingresar string"
@@ -169,6 +170,12 @@ f_funcion () {
         cat $path | grep -n $palabra >> salida.out 
         echo "-------" >> salida.out
         cat salida.out
+}
+
+g_funcion(){
+    imprimir_encabezado "\tOpcion g. Buscar procesos que cambien de estado"
+    gnome-terminal -e ./proc 
+    top | grep "D"
 }
 
 #------------------------------------------------------
@@ -188,6 +195,7 @@ do
         d|D) d_funcion;;
         e|E) e_funcion;;
         f|F) f_funcion;;
+        g|G) g_funcion;;
         q|Q) break;;
         *) malaEleccion;;
     esac
