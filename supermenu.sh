@@ -29,9 +29,7 @@ imprimir_menu () {
     echo "";
     echo -e "\t\t\t a.  Ver estado del proyecto";
     echo -e "\t\t\t b.  Guardar cambios";
-    echo -e "\t\t\t c.  Actualizar repositorio";
-    echo -e "\t\t\t d.  Cambiar proyecto";        
-    echo -e "\t\t\t e.  Agregar proyecto nuevo";        
+    echo -e "\t\t\t c.  Actualizar repositorio";    
     echo -e "\t\t\t q.  Salir";
     echo "";
     
@@ -50,11 +48,6 @@ imprimir_menu () {
     	echo -e "Escriba la opción y presione ENTER";
 }
 
-agregarMensaje () {
-echo -e "\t Agregue descripcion/mensaje.";
-read respuesta;
-decidir "cd $proyectoActual; git commit -m $respuesta" ;
-}
 
 #------------------------------------------------------
 # FUNCTIONES AUXILIARES
@@ -97,6 +90,11 @@ decidir () {
 	done
 }
 
+agregarMensajeCommit () {
+echo -e "\t Agregue descripcion/mensaje que llevara el commit";
+read respuesta;
+decidir "cd $proyectoActual; git commit -m $respuesta" ;
+}
 
 #------------------------------------------------------
 # FUNCIONES del MENU
@@ -117,7 +115,7 @@ do
     
     case $opB in
         a|A) decidir  "cd $proyectoActual; git add -A";;
-        b|B) agregarMensaje;;
+        b|B) agregarMensajeCommit;;
         c|C) decidir  "cd $proyectoActual; git push -u origin master";;
         q|Q) break;;
         *) malaEleccion;;
@@ -135,38 +133,6 @@ c_funcion () {
       	decidir "cd $proyectoActual; git pull";
 }
 
-d_funcion () {
-	imprimir_encabezado "\tOpción d.  Cambiar proyecto";
-    cont=0
-    while read line
-    do
-        let cont+=1
-       echo -e $cont"-" "$line\n";
-     done < $proyectos
-    
-    echo -e "Elija una ruta:";
-    read opC;
-
-        cont=0
-    while read line
-    do
-      let cont+=1
-      if [ $cont == $opC ]; then
-            proyectoActual=$line;
-      fi
-        done < $proyectos
-
-}
-
-e_funcion () {
-	imprimir_encabezado "\tOpción e.  Agregar proyecto nuevo";        
-	git clone https://gitlab.com/Gabbiani/TP1.git
-        cd TP1	
-	touch README.md
-	git add README.md
-	git commit -m "add README"
-	git push -u origin master
-	}
 #------------------------------------------------------
 # LOGICA PRINCIPAL
 #------------------------------------------------------
