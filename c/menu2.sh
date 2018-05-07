@@ -12,7 +12,8 @@ echo "  ------------ Ejercicios C ------------"
 echo "  --------------------------------------"
 echo "1. Canto Maradooo"
 echo "2. Canto hinchada"
-echo "5. salir"
+echo "3. Mundial"
+echo "4. salir"
 echo "- seleccione una opcion -"
 read opcion
 echo
@@ -20,7 +21,8 @@ echo
 case $opcion in 
 1) ./marado;;
 2) ./canto;;
-5) exit;;
+3) ./simulador;;
+4) exit;;
 *) echo "$opcion no es una opcion valida, intente nuevamente"
 echo "presione una tecla para continuar"
 read tecla;;
