@@ -2,3 +2,16 @@
 1:perro
 3:perro gato pajaro
 -------
+-------
+2:1:perro
+3:3:perro gato pajaro
+-------
+2:1:perro
+3:3:perro gato pajaro
+6:2:1:perro
+7:3:3:perro gato pajaro
+-------
+-------
+1:perro
+3:perro gato pajaro
+-------
