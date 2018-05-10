@@ -1,0 +1,7 @@
+ntry]
+Name=supermenu
+Comment=Ejercicio de acceso directo del tp
+Exec=/home/marcos/Escritorio/tp-sor1/supermenu.sh
+Icon=/home/marcos/Escritorio/tp-sor1/supermenu.png
+Terminal=true
+Type=Application

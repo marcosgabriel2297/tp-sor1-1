@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# alumnos: Federico Atanasoff, Marcos Vera, Nicolas Vera, Matias Arevalo
+# Trabajo SOR-1
+
 #------------------------------------------------------
 # PALETA DE COLORES
 #------------------------------------------------------
