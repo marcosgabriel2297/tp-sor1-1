@@ -141,6 +141,7 @@ c_funcion () {
 
 d_funcion () {
            imprimir_encabezado "\tOpción d. Buscar si un programa esta instalado";
+            echo -e "escribir paquete"
             read paquete
             if dpkg -l | grep -w $paquete; then
                 echo "el programa $paquete se encuenta instalado"
