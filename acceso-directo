@@ -1,7 +1,7 @@
-[Desktop Entry]
-Name=supermenu
+Name=menu
 Comment=Ejercicio de acceso directo del tp
 Exec=/home/marcos/Escritorio/tp-sor1/supermenu.sh
-Icon=/home/marcos/Escritorio/tp-sor1/supermenu.png
+Icon=/home/marcos/Escritorio/super.png
 Terminal=true
 Type=Application
+

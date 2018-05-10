@@ -12,8 +12,8 @@
 #------------------------------------------------------
 # VARIABLES GLOBALES
 #------------------------------------------------------
-proyectoActual="/home/fedeatanasoff/Documentos/bash/tp";
-proyectos="/home/fedeatanasoff/Documentos/bash/tp/repos.txt";
+proyectoActual="/home/marcos/Escritorio/tp-sor1";
+proyectos="/home/marcos/Escritorio/tp-sor1/repos.txt";
 
 #------------------------------------------------------
 # DISPLAY MENU
@@ -174,8 +174,8 @@ f_funcion () {
 
 g_funcion(){
     imprimir_encabezado "\tOpcion g. Buscar procesos que cambien de estado"
-    gnome-terminal -e ./proc 
-    top | grep "proc"
+    gnome-terminal -e ./topo 
+    top -d1 -n12 | grep "topo"
 }
 
 #------------------------------------------------------
