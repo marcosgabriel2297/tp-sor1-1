@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <limits.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-int main() {
+int main()
+{
     //creamos un puntero a un archivo
     FILE *fp;
 
@@ -9,40 +12,39 @@ int main() {
     fp = fopen("/tmp/proceso.log", "w+");
 
     //empezamos un ciclo infinito
-    int i_max = INT_MAX/100;
-        while(1){
+    int i_max = INT_MAX / 100;
+    while (1)
+    {
         //imprimir un mensaje para el usuario
         printf("Esperando...\n Presione cualquier tecla...");
-        //esperar un enter por parte del usuario        
-        getchar();
-        ///////////////////////////////////////////////////////////////    
+        sleep(4);
+        ///////////////////////////////////////////////////////////////
         //en este punto el proceso esta en Estado Bloqueado (S+ ó D)*//
-        ///////////////////////////////////////////////////////////////                                    
+        ///////////////////////////////////////////////////////////////
 
         //imprimir mensaje para el usuario
         printf(" Recalculando...\n\n");
-        
+
         //empezamos un ciclo donde el proceso hace operaciones aritmeticas (usa la cpu)
-        int contador=0;
-        while(contador < i_max){
+        int contador = 0;
+        while (contador < i_max)
+        {
             //mientras no llego al entero maximo sigo sumando y usando procesador
             contador = contador + 1;
-            ////////////////////////////////////////////////////////////    
-            //en este punto el proceso esta en Estado de Ejecucion (R)//               
-            ////////////////////////////////////////////////////////////    
-            
-            //escribo la variable contador en fp            
-            fprintf(fp, "Linea...%d \n",contador);
+            ////////////////////////////////////////////////////////////
+            //en este punto el proceso esta en Estado de Ejecucion (R)//
+            ////////////////////////////////////////////////////////////
+
+            //escribo la variable contador en fp
+            fprintf(fp, "Linea...%d \n", contador);
         }
     }
     fclose(fp);
     return 0;
     //////////////////////////////////////////////////////////
-        // en este punto el proceso está en Estado Terminado (T)//
+    // en este punto el proceso está en Estado Terminado (T)//
     //////////////////////////////////////////////////////////
- 
 }
-
 
 /*
 Compilar:
@@ -55,4 +57,3 @@ Ver Proceso con mas opciones y colores:
     htop
 
 */
-

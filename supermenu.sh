@@ -175,7 +175,7 @@ f_funcion () {
 g_funcion(){
     imprimir_encabezado "\tOpcion g. Buscar procesos que cambien de estado"
     gnome-terminal -e ./proc 
-    top | grep "D"
+    top | grep "proc"
 }
 
 #------------------------------------------------------
